@@ -34,7 +34,7 @@ jobs:
 
       # Build and push step
       - name: Build and push
-        run: docker push yuta519/runpod-demo:dev
+        run: docker push nfancy/scflow:dev
 
   dev-test:
     needs: docker-build
