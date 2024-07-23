@@ -1,5 +1,4 @@
 name: CD | Build-Test-Release
-
 on:
   push:
     branches:
@@ -32,15 +31,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: hoge
-        run: pwd
       # Build and push step
       - name: Build and push
-        run: |
-          docker build . -t yuta519/hello-runpod
+        run: pwd
       - name: Build and push
         run: |
-          docker push yuta519/hello-runpod
+          docker build ./Dockerfile -t yuta519/hello-runpod
+      - name: Build and push
+        run: docker build . -t yuta519/hello-runpod
 
       - name: Build and push
         uses: docker/build-push-action@v4
