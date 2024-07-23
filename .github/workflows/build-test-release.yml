@@ -32,6 +32,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: hoge
+        run: pwd
       # Build and push step
       - name: Build and push
         run: |
