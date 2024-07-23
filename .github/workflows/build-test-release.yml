@@ -33,7 +33,7 @@ jobs:
 
       # Build and push step
       - name: Build and push
-        run: pwd
+        run: ls
       - name: Build and push
         run: |
           docker build ./Dockerfile -t yuta519/hello-runpod
