@@ -34,7 +34,10 @@ jobs:
 
       # Build and push step
       - name: Build and push
-        run: docker push nfancy/scflow:dev
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ${{ vars.DOCKERHUB_REPO }}/hello-runpod:${{ (github.event_name == 'release' && github.event.release.tag_name) || (github.event_name == 'workflow_dispatch' && github.event.inputs.image_tag) || 'dev' }}
 
   dev-test:
     needs: docker-build
